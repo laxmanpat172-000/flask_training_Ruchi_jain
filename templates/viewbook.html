@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>View Books</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="books-container">
+        <header>
+            <h1>Library Management System</h1>
+            <p>All Books</p>
+        </header>
+        <main>
+            <h2>View Books</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Book Name</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for book in books %}
+                    <tr>
+                        <td>{{ book.id }}</td>
+                        <td>{{ book.book_name }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.category }}</td>
+                        <td>₹{{ book.price }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+
+            <br><br>
+
+
+            <a href="{{ url_for('newbook') }}">
+
+                <button type="button">
+                    Add New Book
+                </button>
+
+            </a>
+
+
+            <a href="{{ url_for('dashboard') }}">
+
+                <button type="button">
+                    Dashboard
+                </button>
+
+            </a>
+
+
+            <a href="{{ url_for('logout') }}">
+
+                <button type="button">
+                    Logout
+                </button>
+
+            </a>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

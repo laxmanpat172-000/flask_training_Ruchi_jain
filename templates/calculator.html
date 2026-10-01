@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Simple Calculator</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Main outer box */
+        .main {
+            width: 700px;
+            min-height: 650px;
+            border: 3px solid black;
+            margin: auto;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        /* Number boxes */
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 80px;
+        }
+
+        .number {
+            width: 100px;
+            height: 60px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .number input {
+            width: 100px;
+            height: 35px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Operator boxes */
+        .operator {
+            width: 150px;
+            height: 55px;
+            border: 2px solid black;
+            margin: 25px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+        }
+
+        .operator label {
+            cursor: pointer;
+        }
+
+        .operator input {
+            margin-right: 15px;
+        }
+
+        /* Submit button */
+        .submit-box {
+            width: 250px;
+            height: 70px;
+            border: 2px solid black;
+            margin: 70px auto 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .submit-box button {
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <form action="{{ url_for('calculator') }}" method="POST">
+
+        <div class="main">
+
+            <!-- First value -->
+            <div class="top-row">
+
+                <div class="number">
+                    <input type="number" name="a" placeholder="A" required>
+                </div>
+
+                <!-- Second value -->
+                <div class="number">
+                    <input type="number" name="b" placeholder="B" required>
+                </div>
+
+            </div>
+
+
+            <!-- Addition -->
+            <div class="operator">
+
+                <label>
+                    <input type="radio" name="operator" value="+" required>
+                    +
+                </label>
+
+            </div>
+
+
+            <!-- Subtraction -->
+            <div class="operator">
+
+                <label>
+                    <input type="radio" name="operator" value="-">
+                    -
+                </label>
+
+            </div>
+
+
+            <!-- Multiplication -->
+            <div class="operator">
+
+                <label>
+                    <input type="radio" name="operator" value="*">
+                    *
+                </label>
+
+            </div>
+
+
+            <!-- Division -->
+            <div class="operator">
+
+                <label>
+                    <input type="radio" name="operator" value="/">
+                    /
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- Submit button -->
+        <div class="submit-box">
+
+            <button type="submit">
+                Calculate
+            </button>
+
+        </div>
+
+    </form>
+
+</body>
+
+</html>
